@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Youtube link finder</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <form id="lookup_fields">
+      <span>Enter search terms here:</span><br/>
+      <textarea id="queries" rows="20" cols="120"></textarea><br/>
+      <button id="prepend" type="submit"> Prepend text to all lines</button>
+      <input type="text" id="text_to_prepend"></input><br/>
+      <button id="lookup" type="submit"> Lookup </button><br/>
+      <span>Results will appear here:</span><br/>
+      <textarea id="results" rows="20" cols="120"></textarea><br/>
+      <button id="sort" type="submit"> Sort Links </button>
+      <button id="clean" type="submit"> Remove index from links </button><br/>
+    </form>
+    <script type="text/javascript">
+      Array.prototype.clean = function(deleteValue) {
+        for (var i = 0; i < this.length; i++) {
+          if (this[i] == deleteValue) {
+            this.splice(i, 1);
+            i--;
+          }
+        }
+        return this;
+      };
+
+
+      function pad(number, length) {
+        var str = '' + number;
+        while (str.length < length) {
+          str = '0' + str;
+        }
+        return str;
+      }
+
+      $('#lookup').click(function(ev) {
+        ev.preventDefault();
+        $('#results').val('');
+        var lines = $('#queries').val().split('\n').clean("");
+        $.each(lines, function(index){
+          console.log("" + this);
+          $.getJSON('https://gdata.youtube.com/feeds/api/videos?callback=?', {
+            alt: 'json',
+            q: ""+this,
+          }, function(data) {
+            $('#results').val($('#results').val() + pad(index, 2) + " " + data['feed']['entry'][0]['link'][0]['href'] + " # " + data['feed']['entry'][0]['title']['$t'] + "\n");
+          });
+        });
+      });
+
+      $('#prepend').click(function(ev) {
+        ev.preventDefault();
+        var strings = $('#queries').val().split('\n').clean("");
+        var new_queries = "";
+        var text_to_prepend = $('#text_to_prepend').val();
+        $.each(strings, function() {
+          new_queries = new_queries + text_to_prepend + " " + this + "\n";
+        });
+        $('#queries').val(new_queries);
+      });
+
+      $('#sort').click(function(ev) {
+        ev.preventDefault();
+        var links = $('#results').val().split('\n').clean("").sort().join("\n");
+        $('#results').val(links);
+      });
+
+      $('#clean').click(function(ev) {
+        ev.preventDefault();
+        var links = $('#results').val().split('\n');
+        var new_links = "";
+        $.each(links, function() {
+          new_links = new_links + this.substring(3) + "\n";
+        });
+        $('#results').val(new_links);
+      });
+    </script>
+  </body>
+</html>
