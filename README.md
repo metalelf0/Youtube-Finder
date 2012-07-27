@@ -2,13 +2,13 @@
 
 * Copy your search terms into the top textarea
 * click search
-* look at the results in the bottom textarea
+* look at the results in the bottom table
+* eventually use the `prepare raw` button to have an easy-to-copy
+  version of the links.
 
 ## Other tools
 
-* considering AJAX is by definition asynchronous, I added two buttons to
-  sort links in the bottom textarea and to remove the counter
-* I also added a button to automatically prepend a text to all the
+* I added a button to automatically prepend a text to all the
   search terms in the top text area
 
 ## Compatibility
