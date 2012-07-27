@@ -1,22 +1,79 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Youtube link finder</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/youtube-find.js"></script>
-  </head>
-  <body>
-    <form id="lookup_fields">
-      <span>Enter search terms here:</span><br/>
-      <textarea id="queries" rows="20" cols="120"></textarea><br/>
-      <button id="prepend" type="submit"> Prepend text to all lines</button>
-      <input type="text" id="text_to_prepend"></input><br/>
-      <button id="lookup" type="submit"> Lookup </button><br/>
-      <span>Results will appear here:</span><br/>
-      <textarea id="results" rows="20" cols="120"></textarea><br/>
-      <button id="sort" type="submit"> Sort Links </button>
-      <button id="clean" type="submit"> Remove index from links </button><br/>
-    </form>
-    <script type="text/javascript" src="lib/handlers.js"></script>
-  </body>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Youtube link finder</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="lib/youtube-find.js"></script>
+<script type="text/javascript" src="lib/youtube-find.js"></script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">Project name</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span8 offset2">
+      <h1>Youtube music finder</h1>
+      <form id="lookup_fields" class="well form-horizontal">
+
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="queries">Search terms here:</label>
+            <div class="controls">
+              <textarea id="queries" class="input-xlarge" rows="15"></textarea><br/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="input01">Prepend text:</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="text_to_prepend"></input>
+              <button id="prepend" class="btn" type="submit"> Prepend text to all lines</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button id="lookup" class="btn btn-primary" type="submit">Lookup</button>
+        </div>
+
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="results">Results will appear here:</label>
+            <div class="controls">
+              <textarea id="results" class="input-xlarge" rows="15"></textarea><br/>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button id="sort"  class="btn" type="submit">Sort Links</button>
+          <button id="clean" class="btn" type="submit">Remove index from links</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="lib/handlers.js"></script>
+</div> <!-- /container -->
 </html>
