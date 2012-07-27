@@ -58,22 +58,28 @@
           <button id="lookup" class="btn btn-primary" type="submit">Lookup</button>
         </div>
 
-        <fieldset>
-          <div class="control-group">
-            <label class="control-label" for="results">Results will appear here:</label>
-            <div class="controls">
-              <textarea id="results" class="input-xlarge" rows="15"></textarea><br/>
-            </div>
-          </div>
-        </fieldset>
-
-        <div class="form-actions">
-          <button id="sort"  class="btn" type="submit">Sort Links</button>
-          <button id="clean" class="btn" type="submit">Remove index from links</button>
-        </div>
+        <table id="results-table" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Url</th>
+              <th>Video title</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>something</td>
+            <td>something</td>
+            <td>something</td>
+          </tr>
+          </tbody>
+        </table>
       </form>
+
     </div>
   </div>
+
+
   <script type="text/javascript" src="lib/handlers.js"></script>
 </div> <!-- /container -->
 </html>
