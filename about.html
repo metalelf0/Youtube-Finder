@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Youtube music finder</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/youtube-find.js"></script>
+    <script type="text/javascript" src="lib/youtube-find.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
+    <style>
+      body {
+          padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Youtube music finder</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="#">About</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+      </div><!--./navbar-inner -->
+    </div><!-- navbar -->
+
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+          <div class="page-header">
+            <h1>Youtube music finder<small> an easy to use youtube-dl companion</small></h1>
+          </div>
+          <h2>What's this?</h2>
+          <p>
+            <code>youtube-dl</code> is a command line tool by Ricardo
+            Garcia Gonzalez, to download youtube videos. Considering it
+            also allows converting downloaded videos to mp3 format and
+            it supports loading a list of youtube urls from an external
+            file, it's the perfect tool to download a bunch of music
+            from youtube.
+          </p>
+          <h2>Before youtube music finder</h2>
+          <p>
+            Think about this: you heard some tracks on the radio. You would
+            love to download them all from the tube. So, you would open a text
+            editor, and point your browser to youtube.com. Then you would
+            start searching for each song, copying the resulting url to the
+            text editor, finally saving the file and feeding it to youtube-dl.
+            Quite a long and repetitive process.
+          </p>
+          <h2>With youtube music finder</h2>
+          <p>
+            You can type all the song names you want to download into the
+            "Search terms" box. Then, when you will hit lookup, it will start
+            searching all of them in youtube, presenting you the first result
+            for each song in a cool table. And after hitting "prepare raw",
+            you will have them ready to paste in a text file to feed to
+            youtube-dl!
+          </p>
+          <h3>Links</h3>
+          <ol>
+            <li><a href="http://rg3.github.com/youtube-dl/">youtube-dl</a></li>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript" src="lib/handlers.js"></script>
+  </body>
+</html>
