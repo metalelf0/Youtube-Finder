@@ -5,6 +5,7 @@
   <title>Youtube music finder</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="lib/youtube-find.js"></script>
+  <script type="text/javascript" src="lib/handlebars-1.0.0.beta.6.js"></script>
   <script type="text/javascript" src="lib/youtube-find.js"></script>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css">
   <style>
@@ -66,30 +67,42 @@
         </div>
 
         <table id="results-table" class="table table-striped" style="display:none">
-          <thead>
-            <tr>
-              <th>Index</th>
-              <th>Url</th>
-              <th>Video title</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>something</td>
-            <td>something</td>
-            <td>something</td>
-          </tr>
-          </tbody>
         </table>
       </form>
 
       <pre id="raw-links" class="prettyprint" style="display: none"></pre>
 
+      <div id="handle"></div>
 
     </div>
   </div><!-- /row -->
 
+  <script id="table-template" type="text/x-handlebars-template">
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Url</th>
+        <th>Video title</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each rows}}
+      <tr id="result_row_{{this.padded_index}}">
+        <td class="index">{{this.index}}</td>
+        <td class="url">{{this.url}}</td>
+        <td class="title">{{this.video_title}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </script>
+
+  <script id="table-row-template" type="text/x-handlebars-template">
+    <td>{{index}}</td>
+    <td>{{url}}</td>
+    <td>{{video_title}}</td>
+  </script>
 
   <script type="text/javascript" src="lib/handlers.js"></script>
+
 </div> <!-- /container -->
 </html>
